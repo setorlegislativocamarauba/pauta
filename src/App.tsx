@@ -18,7 +18,7 @@ export default function App() {
     try {
       // Primeiro precisamos descobrir a última página
       const primeiraUrl = `https://sapl.uba.mg.leg.br/api/sessao-plenaria/`;
-      const respPrimeira = await fetch(`https://corsproxy.io/?${encodeURIComponent(primeiraUrl)}`);
+      const respPrimeira = await fetch(primeiraUrl);
       const dadosPrimeira = await respPrimeira.json();
       const ultimaPagina = dadosPrimeira.pagination.total_pages;
 
@@ -27,7 +27,7 @@ export default function App() {
       // Busca as últimas 3 páginas para garantir que pegamos as mais recentes
       for (let pagina = ultimaPagina; pagina >= Math.max(1, ultimaPagina - 2); pagina--) {
         const urlBase = `https://sapl.uba.mg.leg.br/api/sessao-plenaria/?page=${pagina}`;
-        const resposta = await fetch(`https://corsproxy.io/?${encodeURIComponent(urlBase)}`);
+        const resposta = await fetch(urlBase);
         const dados = await resposta.json();
         todasSessoes.push(...dados.results);
       }
