@@ -1,0 +1,6 @@
+{
+  "name": "Portal de Pautas - Câmara Municipal de Ubá",
+  "description": "Acompanhe as pautas das sessões da Câmara Municipal de Ubá e mantenha-se informado sobre os trabalhos legislativos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
